@@ -22,6 +22,7 @@ function updateHeaderTheme() {
   const about = introSection.getBoundingClientRect();
   const onLightSection = about.top > edge || about.bottom <= edge;
   masthead.classList.toggle('is-light', onLightSection);
+  masthead.classList.toggle('is-over-home', cascade.getBoundingClientRect().bottom > edge);
 }
 
 function updateScrollEffects() {
@@ -49,3 +50,11 @@ reducedMotion.addEventListener('change', scheduleScrollEffects);
 for (const image of document.querySelectorAll('.card-frame img')) {
   image.addEventListener('contextmenu', event => event.preventDefault());
 }
+
+const cascadeToggle = document.querySelector('#cascade-toggle');
+cascadeToggle.addEventListener('click', () => {
+  const hidden = cascade.classList.toggle('is-images-hidden');
+  cascadeToggle.setAttribute('aria-pressed', String(!hidden));
+  cascadeToggle.title = hidden ? 'Show cascading images' : 'Hide cascading images';
+  scheduleScrollEffects();
+});

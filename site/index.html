@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Isadora Duncan Dancer</title>
+  <title>Vidala | Isadora Duncan Dancer</title>
   <meta name="description" content="The art of Isadora Duncan through dance, performance, and study.">
   <link rel="stylesheet" href="./styles.css">
   <script src="./main.js" defer></script>
@@ -11,22 +11,27 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="masthead" id="masthead">
-    <a class="brand" href="#home">Isadora Duncan<span>Dancer</span></a>
+    <a class="brand" href="#home">Vidala<span>Isadora Duncan Dancer</span></a>
     <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="#classes">Classes &amp; Auditions</a>
-      <a href="#performances">Performances</a>
-      <a href="#reading-room">Reading Room</a>
+      <a href="#classes">Art of the Dance</a>
+      <a href="#performances">Media/Press</a>
+      <a href="#support">Support</a>
+      <span class="contact-controls"><a href="#contact">Contact</a><button type="button" id="cascade-toggle" aria-label="Cascading images" aria-pressed="true" aria-controls="cascade-images" title="Hide cascading images">◇</button></span>
     </nav>
-    <a class="booking" href="#contact">Booking <span aria-hidden="true">↗</span></a>
   </header>
   <main id="main">
     <section class="cascade" id="home" aria-labelledby="page-title">
-      <div class="cascade-title">
-        <h1 id="page-title"><span>Isadora Duncan</span><em>Dancer</em></h1>
-        <p>Scroll to explore <span aria-hidden="true">↓</span></p>
+      <div class="beach-backdrop" aria-hidden="true"></div>
+      <div class="beach-intro">
+        <h1 id="page-title" class="visually-hidden">Vidala · Isadora Duncan Dancer</h1>
+        <div class="beach-copy">
+          <p>Among Isadora Duncan’s handpicked stars was Lily Dikovskaya, appointed by Isadora as her dance captain and sole authority to pass on her performance legacy to the next generation of Isadora Duncan Dancers.</p>
+          <p><em>Lily’s sole protégée is Vidala</em>—acclaimed by <em>The New York Times, Newsday,</em> and Celebrated Artists, and hailed internationally as “Isadora’s Heir.”</p>
+        </div>
       </div>
-      <div class="cascade-images" aria-hidden="true">
+      <div id="cascade-images" class="cascade-images" aria-hidden="true">
           <img class="cascade-image cascade-image--1 cascade-image--gold" src="../assets/isadora-dancing.jpg" alt="" draggable="false">
           <img class="cascade-image cascade-image--2 cascade-image--photo" src="../assets/isadora-portrait.jpg" alt="" draggable="false">
           <img class="cascade-image cascade-image--3 cascade-image--gold" src="../assets/isadora-dancing.jpg" alt="" draggable="false">
@@ -90,6 +95,10 @@
         <p>Books, articles, and press on Isadora Duncan and the company.</p>
       </section>
     </div>
+    <section class="section-wrap support-section" id="support" aria-labelledby="support-title">
+      <h2 id="support-title">Support</h2>
+      <p><a href="#contact">Contact us to learn how to support the work.</a></p>
+    </section>
   </main>
   <footer id="contact">
     <div class="section-wrap footer-inner">
