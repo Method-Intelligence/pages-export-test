@@ -1,6 +1,15 @@
 const masthead = document.querySelector('#masthead');
 const introSection = document.querySelector('#about');
 const cascade = document.querySelector('.cascade');
+const dancerImages = [
+  '../assets/isadora-dancing.jpg',
+  '../assets/isadora-portrait.jpg',
+  '../assets/isadora_duncan.jpg',
+  '../assets/Isadora_Duncan2.jpg',
+];
+for (const image of cascade.querySelectorAll('img')) {
+  image.src = dancerImages[Math.floor(Math.random() * dancerImages.length)];
+}
 const movingImages = Array.from(cascade.querySelectorAll('img'), image => ({
   image,
   depth: Number(getComputedStyle(image).getPropertyValue('--depth')),
