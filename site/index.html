@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Decision Deck</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="../libraries/chartjs-4.6.1/chart.umd.js"></script>
+    <script defer src="../libraries/mermaid-12.3.0/mermaid.min.js"></script>
+    <script defer src="../libraries/vega-lite-6.5.0/vega.min.js"></script>
+    <script defer src="../libraries/vega-lite-6.5.0/vega-lite.min.js"></script>
+    <script defer src="../libraries/vega-lite-6.5.0/interpreter.js"></script>
+    <script type="module" src="main.js"></script>
+</head>
+
+<body>
+    <main>
+        <header>
+            <p class="eyebrow">INTERACTIVE PROPOSAL LAB / 01</p>
+            <h1>Decision Deck</h1>
+            <p>Three ways to review a warehouse upgrade: compare spend, trace approval, and explore quarterly costs.</p>
+        </header>
+        <nav aria-label="Camera views">
+            <button data-view="all" aria-pressed="true">Overview</button><button data-view="0" aria-pressed="false">01 Budget</button><button data-view="1" aria-pressed="false">02 Approval</button><button data-view="2" aria-pressed="false">03 Scenarios</button><button id="flat" aria-pressed="false">Flat view</button>
+        </nav>
+        <p class="hint">Choose a station for a closer look. Drag the background to orbit. Sample costs are in thousands
+            of US dollars.</p>
+        <div id="stage" aria-label="3D proposal gallery"></div>
+        <div id="panels">
+            <section class="panel budget">
+                <p class="eyebrow">01 / CHART.JS</p>
+                <h2>Budget comparison</h2>
+                <p>Proposed: $94k · Baseline: $100k</p>
+                <div class="plot"><canvas id="budget" role="img"
+                        aria-label="Grouped bars comparing baseline and proposed budget. See figures below."></canvas>
+                </div><small>Hover over a bar for its value.</small>
+            </section>
+            <section class="panel flow">
+                <p class="eyebrow">02 / MERMAID</p>
+                <h2>Approval route</h2>
+                <p>Finance reviews before sponsor sign-off.</p>
+                <div id="flow" role="img"
+                    aria-label="Submit to Finance. Revise and resubmit if changes are needed. If approved, send to sponsor.">
+                </div>
+            </section>
+            <section class="panel scenarios">
+                <p class="eyebrow">03 / VEGA-LITE</p>
+                <h2>Quarterly scenarios</h2>
+                <p>Select a category bar to filter the lower chart.</p>
+                <div id="vega"></div>
+            </section>
+        </div>
+        <section class="notes">
+            <h2>Figures and approval steps</h2>
+            <table>
+                <caption>Illustrative warehouse upgrade budget, USD thousands</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Category</th>
+                        <th scope="col">Baseline</th>
+                        <th scope="col">Proposed</th>
+                        <th scope="col">Q1 proposed</th>
+                        <th scope="col">Q2 proposed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Software</th>
+                        <td>48</td>
+                        <td>42</td>
+                        <td>21</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Installation</th>
+                        <td>32</td>
+                        <td>38</td>
+                        <td>22</td>
+                        <td>16</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Training</th>
+                        <td>20</td>
+                        <td>14</td>
+                        <td>4</td>
+                        <td>10</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ol>
+                <li>Submit the proposal for Finance review.</li>
+                <li>If Finance requests changes, revise and resubmit.</li>
+                <li>If Finance approves, send to the sponsor for sign-off.</li>
+            </ol><label for="category">Quarterly cost category</label>
+            <select id="category"><option value="">All categories</option><option>Software</option><option>Installation</option><option>Training</option></select>
+            <p id="summary" role="status">All categories: Q1 $47k · Q2 $47k</p>
+        </section>
+    </main>
+</body>
+
+</html>
